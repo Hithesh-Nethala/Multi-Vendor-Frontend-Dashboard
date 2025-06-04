@@ -1,0 +1,137 @@
+.product-register {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 30px;
+    background-color: #fef6e4; /* Light cream color for uniqueness */
+    border-radius: 15px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.product-register-title {
+    font-size: 2.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #ff6f61; /* Distinct coral color for the title */
+    margin-bottom: 25px;
+}
+
+.product-register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-register-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ff6f61; /* Coral border for uniqueness */
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-register-input:focus {
+    border-color: #ff3b2f;
+    box-shadow: 0px 0px 8px rgba(255, 107, 97, 0.5);
+    outline: none;
+}
+
+.product-register-category {
+    text-align: left;
+}
+
+.product-register-label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-register-radio-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.product-register-radio-group label {
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.product-register-radio {
+    cursor: pointer;
+}
+
+.product-register-file {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ff6f61;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.product-register-textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ff6f61;
+    border-radius: 8px;
+    resize: none;
+    height: 120px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-register-textarea:focus {
+    border-color: #ff3b2f;
+    box-shadow: 0px 0px 8px rgba(255, 107, 97, 0.5);
+    outline: none;
+}
+
+.product-register-button {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-register-button:hover {
+    background-color: #ff3b2f;
+    box-shadow: 0px 4px 8px rgba(255, 107, 97, 0.5);
+}
+.status-message {
+    font-size: 1rem;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.no-token-message {
+    font-size: 1.5rem;
+    color: #721c24; /* Red color for emphasis */
+    background-color: #f8d7da; /* Light red background */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    margin: 10px auto;
+    height: max-content;
+}

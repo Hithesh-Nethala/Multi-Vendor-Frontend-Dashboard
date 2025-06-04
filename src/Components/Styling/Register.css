@@ -1,0 +1,89 @@
+.register {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-title {
+    font-size: 1.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.register-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.register-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+.register-form p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.register-form p span {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.register-form p span:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.status-message {
+    font-size: 1rem;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}

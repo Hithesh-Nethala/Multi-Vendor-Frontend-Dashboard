@@ -1,0 +1,118 @@
+.firm-register {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.firm-register-title {
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.firm-register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.firm-register-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.firm-register-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.firm-register-label {
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+}
+
+.firm-register-checkbox-group,
+.firm-register-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.firm-register-checkbox-group label,
+.firm-register-radio-group label {
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.firm-register-checkbox,
+.firm-register-radio {
+    cursor: pointer;
+}
+
+.firm-register-file {
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.firm-register-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.firm-register-button:hover {
+    background-color: #0056b3;
+}
+.status-message {
+    font-size: 1rem;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-message.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.no-token-message {
+    font-size: 1.5rem;
+    color: #721c24; /* Red color for emphasis */
+    background-color: #f8d7da; /* Light red background */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    margin: 10px auto;
+    height: max-content;
+}
