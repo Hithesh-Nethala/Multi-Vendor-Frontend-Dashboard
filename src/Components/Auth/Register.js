@@ -3,7 +3,7 @@ import '../Styling/Register.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { API_URL } from '../apiPath'
-const Register = ({ loginClickHandle }) => {
+const Register = ({ setActiveView }) => {
     const [value, setValue] = useState({
         name: '',
         email: '',
@@ -12,8 +12,7 @@ const Register = ({ loginClickHandle }) => {
         confirmpassword: ''
     })
     const [status, setStatus] = useState(null)
-    const [statusType, setStatusType] = useState('') // New state to track success or error
-
+    const [statusType, setStatusType] = useState('') 
     const changeHandle = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value })
     }
@@ -24,14 +23,17 @@ const Register = ({ loginClickHandle }) => {
             .post(`${API_URL}/owner/register`, value)
             .then((res) => {
                 setStatus(res.data.message)
-                setStatusType('success') // Set status type to success
+                setStatusType('success') 
+                setTimeout(() => {
+                    setStatus(null);
+                    setValue({name: '',email: '',number: '',password: '',confirmpassword: ''})
+                }, 1000);
             })
             .catch((err) => {
                 setStatus(err.response.data.message)
                 setStatusType('error') // Set status type to error
             })
         console.log(value)
-        setValue({name: '',email: '',number: '',password: '',confirmpassword: ''})
     }
 
     return (
@@ -62,6 +64,7 @@ const Register = ({ loginClickHandle }) => {
                     type='text'
                     name='number'
                     value={value.number}
+                    maxLength='10'
                     placeholder='Enter Mobile Number'
                     className='register-input'
                     onChange={changeHandle}
@@ -91,7 +94,7 @@ const Register = ({ loginClickHandle }) => {
                     <p className={`status-message ${statusType}`}>{status}</p>
                 ) : null}
                 <p>
-                    Already have an account? <span onClick={loginClickHandle}>Login</span>
+                    Already have an account? <span onClick={()=>setActiveView('login')}>Login</span>
                 </p>
             </form>
         </div>

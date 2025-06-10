@@ -1,16 +1,25 @@
-import React from 'react'
-import './Styling/Sidebar.css'
-const Sidebar = ({addFirmHandle,productRegisterHandle,allProductHandle,ownerDetailsHandle,showaddfirm}) => {
-  return (
-    <>
-        <section className='sidebar d-flex flex-column ps-5'>
-          {showaddfirm?<p className='sidebar-item' onClick={addFirmHandle}>Add Firm</p>:''}
-            <p className='sidebar-item' onClick={productRegisterHandle}>Add Product</p>
-            <p className='sidebar-item' onClick={allProductHandle}>All Products</p>
-            <p className='sidebar-item' onClick={ownerDetailsHandle}>Owner Details</p>
-        </section>
-    </>
-  )
-}
+import React from 'react';
+import './Styling/Sidebar.css';
 
-export default Sidebar
+const Sidebar = ({ setActiveView, showaddfirm }) => {
+  return (
+    <aside className="sidebar-container p-3">
+      {showaddfirm && (
+        <p className="sidebar-item" onClick={() => setActiveView("addfirm")}>
+          Add Firm
+        </p>
+      )}
+      <p className="sidebar-item" onClick={() => setActiveView("addproduct")}>
+        Add Product
+      </p>
+      <p className="sidebar-item" onClick={() => setActiveView("allproduct")}>
+        All Products
+      </p>
+      <p className="sidebar-item" onClick={() => setActiveView("ownerdetails")}>
+        Owner Details
+      </p>
+    </aside>
+  );
+};
+
+export default Sidebar;

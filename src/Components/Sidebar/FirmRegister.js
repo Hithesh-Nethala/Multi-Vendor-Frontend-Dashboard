@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../Styling/FirmRegister.css";
 import axios from "axios";
 import { API_URL } from '../apiPath'
-const FirmRegister = () => {
+const FirmRegister = ({setActiveView}) => {
   const [value, setValue] = useState({
     name: "",
     address: "",
@@ -13,7 +13,14 @@ const FirmRegister = () => {
   });
   const [status, setStatus] = useState(null);
   const [statusType, setStatusType] = useState(""); // Track success or error
+  const [disable,setDisable]=useState(false);
   const token = localStorage.getItem('ownertoken')
+  useEffect(()=>{
+    const firm=localStorage.getItem('firmid')
+    if(firm){
+      alert('There is already 1 Firm exists on your name!!!')
+    }
+  },[])
   const changeHandle = (e) => {
     const { name, value, type, checked, files } = e.target;
 
@@ -54,11 +61,15 @@ const FirmRegister = () => {
         .then((res) => {
           setStatus(res.data.message);
           localStorage.setItem('firmid',res.data.firmid)
-          setStatusType("success"); // Set status type to success
+          localStorage.setItem('firmname',res.data.firmname)
+          setDisable(true);
+          setStatusType("success"); 
+          setValue({name: "",address: "",category: [],region: [],offer: "",image: "",})
+          setActiveView("addfirm")
         })
         .catch((err) => {
           setStatus(err.response.data.message);
-          setStatusType("error"); // Set status type to error
+          setStatusType("error"); 
         });
     } catch (error) {
       console.log(error);
@@ -172,7 +183,7 @@ const FirmRegister = () => {
         {status !== null ? (
           <p className={`status-message ${statusType}`}>{status}</p>
         ) : null}
-        <button type="submit" className="firm-register-button">
+        <button type="submit" className="firm-register-button" disabled={disable}>
           Register
         </button>
       </form>

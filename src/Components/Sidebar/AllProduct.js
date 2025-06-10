@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../Styling/Allproduct.css'
 import axios from 'axios'
 import { API_URL } from '../apiPath'
+import { PuffLoader } from "react-spinners";
 const AllProduct = () => {
     const firmid = localStorage.getItem('firmid')
     const token = localStorage.getItem('ownertoken')
@@ -32,8 +33,9 @@ const AllProduct = () => {
             {token ?
             <>
             <h4 className='all-product-title'>All Products</h4>
-            {!products ? (
+            {!products ? (<>
                 <p className='no-products'>No products added</p>
+                <PuffLoader color="#1676af" className='loader' /></>
             ) : (<>
                 <h4>{firmname}</h4>
                 <table className='product-table'>

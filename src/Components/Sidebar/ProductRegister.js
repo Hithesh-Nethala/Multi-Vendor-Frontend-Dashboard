@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../Styling/ProductRegister.css'
 import axios from 'axios'
 import { API_URL } from '../apiPath'
-const ProductRegister = () => {
+const ProductRegister = ({setActiveView}) => {
     const [value, setValue] = useState({
         name: '',
         price: '',
@@ -13,6 +13,7 @@ const ProductRegister = () => {
     })
     const [status, setStatus] = useState(null)
     const [statusType, setStatusType] = useState('') // Track success or error
+    const [disable,setDisable]=useState(false);
     const token = localStorage.getItem('ownertoken')
     const changeHandle = (e) => {
         const { name, value, checked, files, type } = e.target
@@ -47,6 +48,12 @@ const ProductRegister = () => {
                 .post(`${API_URL}/product/register/${id}`, formData)
                 .then((res) => {
                     setStatus(res.data.message)
+                    setDisable(true);
+                    setTimeout(()=>{
+                        setDisable(false);
+                        setStatus(null);
+                        setActiveView('allproduct')
+                    },2000)
                     setStatusType('success') // Set status type to success
                 })
                 .catch((err) => {
@@ -56,6 +63,14 @@ const ProductRegister = () => {
         } catch (error) {
             console.log(error)
         }
+         setValue({
+            name: '',
+            price: '',
+            category: [],
+            image: '',
+            bestseller: '',
+            description: ''
+        });
         console.log(value)
     }
 
@@ -67,6 +82,7 @@ const ProductRegister = () => {
                 <input
                     type='text'
                     name='name'
+                    value={value.name}
                     placeholder='Enter Product Name'
                     className='product-register-input'
                     required
@@ -76,6 +92,7 @@ const ProductRegister = () => {
                     type='text'
                     name='price'
                     placeholder='Enter Price'
+                    value={value.price}
                     className='product-register-input'
                     required
                     onChange={changeHandle}
@@ -103,6 +120,7 @@ const ProductRegister = () => {
                 <input
                     type='file'
                     name='image'
+                    // value={value.image}
                     className='product-register-file'
                     required
                     onChange={changeHandle}
@@ -111,6 +129,7 @@ const ProductRegister = () => {
                     type='text'
                     name='bestseller'
                     placeholder='Is it a Bestseller? (yes/no)'
+                    value={value.bestseller}
                     className='product-register-input'
                     required
                     onChange={changeHandle}
@@ -119,13 +138,14 @@ const ProductRegister = () => {
                     name='description'
                     placeholder='About Product'
                     className='product-register-textarea'
+                    value={value.description}
                     required
                     onChange={changeHandle}
                 ></textarea>
                 {status !== null ? (
                     <p className={`status-message ${statusType}`}>{status}</p>
                 ) : null}
-                <button type='submit' className='product-register-button'>
+                <button type='submit' className='product-register-button' disabled={disable}>
                     Add Product
                 </button>
             </form>

@@ -22,6 +22,10 @@
     margin-top: 20px;
 }
 
+.loader{
+    margin: auto;
+}
+
 .product-table {
     width: 100%;
     border-collapse: collapse;

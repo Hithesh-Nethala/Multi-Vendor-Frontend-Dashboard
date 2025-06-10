@@ -1,0 +1,20 @@
+/* Home layout wrapper */
+.home-container {
+  width: 100%;
+}
+
+/* Main content area */
+.main-content {
+  flex-grow: 1;
+  padding: 1rem;
+}
+.middle-content{
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width:768px){
+  .middle-content{
+    display: flex;
+    flex-direction: column;
+  }
+}

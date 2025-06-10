@@ -5,14 +5,17 @@ import { API_URL } from '../apiPath'
 const OwnerDetails = () => {
     const ownerid = localStorage.getItem('ownerid')
     const [name, setName] = useState(null)
-
+    
     useEffect(() => {
-        axios
+        if(ownerid){
+            // console.log(ownerid)
+           axios
             .get(`${API_URL}/owner/indvowner/${ownerid}`)
-            .then((res) => setName(res.data.ownername))
+            .then((res) =>{ setName(res.data.ownername);})
             .catch((err) => console.log(err))
+        }
     }, [ownerid])
-
+    // console.log(name)
     return (
         <div className='owner-details'>
            {name!==null? <p className='owner-details-welcome'>Welcome, <span>{name}</span></p>
