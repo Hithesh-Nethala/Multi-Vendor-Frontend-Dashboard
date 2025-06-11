@@ -16,7 +16,7 @@ const AllProduct = () => {
                     'x-token': token
                 }
             })
-            .then((res) => {setProducts(res.data.products);setFirmname(res.data.firmname)})
+            .then((res) => {setProducts(res.data.products);setFirmname(res.data.firmname);console.log(res.data.products)})
             .catch((err) => console.log(err.response.data.message))
     }, [token,firmid])
     const deleteHandle=(productid)=>{
@@ -55,8 +55,8 @@ const AllProduct = () => {
                                 <td>
                                     {item.image && (
                                         <img
-                                            src={`${API_URL}/firm/uploads/${item.image}`}
-                                            alt={item.productName}
+                                            src={item.image}
+                                            alt={item.name}
                                             className='product-image'
                                         />
                                     )}

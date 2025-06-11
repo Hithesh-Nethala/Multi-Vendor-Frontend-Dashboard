@@ -40,7 +40,7 @@ const FirmRegister = ({setActiveView}) => {
     });
   };
 
-  const submitHandle = (e) => {
+  const submitHandle = async(e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", value.name);
@@ -51,7 +51,7 @@ const FirmRegister = ({setActiveView}) => {
     formData.append("image", value.image);
 
     try {
-      axios
+     await axios
         .post(`${API_URL}/firm/register`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
